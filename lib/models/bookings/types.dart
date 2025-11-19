@@ -1,4 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' show Timestamp;
+
+import '../products/types.dart';
+import '../transactions/types.dart';
 
 /// Represents project compliance details.
 class ProjectCompliance {
@@ -54,6 +57,8 @@ class Booking {
   final int? forCensorship;
   final int? forScreening;
   final String? airingCode;
+  final Product? items;
+  final Transaction? transaction;
 
   Booking({
     required this.id,
@@ -93,6 +98,8 @@ class Booking {
     this.forCensorship,
     this.forScreening,
     this.airingCode,
+    this.items,
+    this.transaction,
   });
 
   factory Booking.fromJson(Map<String, dynamic> json) {
@@ -134,6 +141,8 @@ class Booking {
       forCensorship: json['for_censorship'],
       forScreening: json['for_screening'],
       airingCode: json['airing_code'],
+      items: json['items'] != null ? Product.fromJson(json['items']) : null,
+      transaction: json['transaction'] != null ? Transaction.fromJson(json['transaction']) : null,
     );
   }
 
@@ -176,6 +185,8 @@ class Booking {
       'for_censorship': forCensorship,
       'for_screening': forScreening,
       'airing_code': airingCode,
+      'items': items?.toJson(),
+      'transaction': transaction?.toJson(),
     };
   }
 }
