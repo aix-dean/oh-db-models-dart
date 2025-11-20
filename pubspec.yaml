@@ -1,6 +1,6 @@
 name: oh_db_models
 description: "Database models for Firestore, providing Dart classes for reusable data structures in Flutter projects."
-version: 1.1.5
+version: 1.2.0
 homepage:
 
 environment:
@@ -16,6 +16,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  args: ^2.4.2
+  firebase_core: ^2.24.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
